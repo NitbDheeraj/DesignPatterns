@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45226C9F-0712-48A9-9137-91A6F8D81E94}</ProjectGuid>
+    <ProjectGuid>{5596D341-D153-4219-954A-24875930817E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DesignPattern</RootNamespace>
-    <AssemblyName>DesignPattern</AssemblyName>
+    <RootNamespace>Singleton</RootNamespace>
+    <AssemblyName>Singleton</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Strategy.cs" />
+    <Compile Include="LazyLoadingSingleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NoThreadSafeSingleton.cs" />
+    <Compile Include="ThreadSafeSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
