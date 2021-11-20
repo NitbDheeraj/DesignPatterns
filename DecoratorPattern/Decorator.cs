@@ -22,7 +22,7 @@ namespace DecoratorPattern
         }
     }
     // Base Decorator
-    public class PizzaDecorator : IPizza
+    public abstract class PizzaDecorator : IPizza
     {
         private IPizza _pizza;
 

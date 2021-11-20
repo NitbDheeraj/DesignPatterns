@@ -8,12 +8,16 @@ namespace DesignPattern.Behavioral
 {
     //  Define a family of algorithms, 
     //  encapsulate each one, and make them interchangeable.
-    //  Strategy lets the algorithm vary independently from clients that use it.    
+    //  Strategy lets the algorithm vary independently from clients that use it.
+      
+
+    //Strategy Interface
     public interface IGoAlgorithm
     {
         string Go();
     }
 
+    //Strategy 1
     public class GoByDriving : IGoAlgorithm
     {
         public string Go()
@@ -22,6 +26,7 @@ namespace DesignPattern.Behavioral
         }
     }
 
+    //Strategy 2
     public class GoByFlying : IGoAlgorithm
     {
         public string Go()
@@ -30,6 +35,7 @@ namespace DesignPattern.Behavioral
         }
     }
 
+    //Strategy 3
     public class GoByFlyingFast : IGoAlgorithm
     {
         public string Go()
@@ -38,20 +44,18 @@ namespace DesignPattern.Behavioral
         }
     }
 
+    //Abstract strategy
     public abstract class DrivingStrategy
     {
         private IGoAlgorithm _goAlgorithm;
-        public DrivingStrategy()
-        {
-        }
         public void setGoAlgorithm(IGoAlgorithm algorithm)
         {
             _goAlgorithm = algorithm;
         }
 
-        public void go()
+        public string go()
         {
-            _goAlgorithm.Go();
+            return _goAlgorithm.Go();
         }
 
     }
@@ -87,21 +91,6 @@ namespace DesignPattern.Behavioral
         public Jet()
         {
             setGoAlgorithm(new GoByFlyingFast());
-        }
-    }
-
-    // Selecting Algorithms at runtime
-    public class RealJet
-    {
-        public static void FlyJet()
-        {
-            Jet jet = new Jet();
-            jet.setGoAlgorithm(new GoByDriving());
-            jet.go();
-            jet.setGoAlgorithm(new GoByFlyingFast());
-            jet.go();
-            jet.setGoAlgorithm(new GoByDriving());
-            jet.go();
         }
     }
 

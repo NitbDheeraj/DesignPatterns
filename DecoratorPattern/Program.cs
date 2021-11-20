@@ -16,7 +16,6 @@ namespace DecoratorPattern
             IPizza onionDecorator = new OnionDecorator(tomatoDecorator);
             Console.WriteLine(onionDecorator.GetPizzaType());
             Console.ReadLine();
-
         }
     }
 }
