@@ -30,24 +30,15 @@ namespace DesignPattern
     }
     public class GoByDriving : IGoAlgorithm
     {
-        public string Go()
-        {
-            return "Go By Driving";
-        }
+        public string Go() => "Go By Driving";
     }
     public class GoByFlying : IGoAlgorithm
     {
-        public string Go()
-        {
-            return "Go By Flying";
-        }
+        public string Go() => "Go By Flying";
     }
     public class GoByFlyingFast : IGoAlgorithm
     {
-        public string Go()
-        {
-            return "Go By Flying Fast";
-        }
+        public string Go() => "Go By Flying Fast";
     }
 
 
@@ -67,29 +58,29 @@ namespace DesignPattern
         }
 
     }
-    public class StreetRacer : DrivingStrategy
-    {
-        public StreetRacer()
-        {
-            setGoAlgorithm(new GoByDriving());
-        }
-    }
+    //public class StreetRacer : DrivingStrategy
+    //{
+    //    public StreetRacer()
+    //    {
+    //        setGoAlgorithm(new GoByDriving());
+    //    }
+    //}
 
-    public class FormulaOne : DrivingStrategy
-    {
-        public FormulaOne()
-        {
-            setGoAlgorithm(new GoByDriving());
-        }
-    }
+    //public class FormulaOne : DrivingStrategy
+    //{
+    //    public FormulaOne()
+    //    {
+    //        setGoAlgorithm(new GoByDriving());
+    //    }
+    //}
 
-    public class Helicopter : DrivingStrategy
-    {
-        public Helicopter()
-        {
-            setGoAlgorithm(new GoByFlying());
-        }
-    }
+    //public class Helicopter : DrivingStrategy
+    //{
+    //    public Helicopter()
+    //    {
+    //        setGoAlgorithm(new GoByFlying());
+    //    }
+    //}
 
     public class Jet : DrivingStrategy
     {
