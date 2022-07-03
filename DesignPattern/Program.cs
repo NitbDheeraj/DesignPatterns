@@ -11,82 +11,57 @@ namespace DesignPattern
         static void Main(string[] args)
         {
             // Selecting Algorithms at runtime
-            Jet jet = new Jet();
-            jet.setGoAlgorithm(new GoByDriving());
-            Console.WriteLine(jet.go());
-            jet.setGoAlgorithm(new GoByFlyingFast());
-            Console.WriteLine(jet.go());
-            jet.setGoAlgorithm(new GoByDriving());
-            Console.WriteLine(jet.go());
+            ConcreteStrategy cs = new ConcreteStrategy();
+            Console.WriteLine(cs.ImplementAlgorithm());
+
+            cs.SetAlgorithm(new Algorithm2());
+            Console.WriteLine(cs.ImplementAlgorithm());
+
+            cs.SetAlgorithm(new Algorithm3());
+            Console.WriteLine(cs.ImplementAlgorithm());
+
+  
             Console.ReadLine();
         }
     }
 
 
-    //Different strategy inherited from different 
-    public interface IGoAlgorithm
+    public interface IAlgorithm
     {
-        string Go();
-    }
-    public class GoByDriving : IGoAlgorithm
-    {
-        public string Go() => "Go By Driving";
-    }
-    public class GoByFlying : IGoAlgorithm
-    {
-        public string Go() => "Go By Flying";
-    }
-    public class GoByFlyingFast : IGoAlgorithm
-    {
-        public string Go() => "Go By Flying Fast";
+        string Implement();
     }
 
+    public class Algorithm1 : IAlgorithm
+    {
+        public string Implement() => "Algorithm1";
+    }
 
+    public class Algorithm2 : IAlgorithm
+    {
+        public string Implement() => "Algorithm2";
+    }
+
+    public class Algorithm3 : IAlgorithm
+    {
+        public string Implement() => "Algorithm3";
+    }
 
 
     //Abstract strategy
-    public abstract class DrivingStrategy
+    public abstract class Strategy
     {
-        private IGoAlgorithm _goAlgorithm;
-        public void setGoAlgorithm(IGoAlgorithm algorithm)
-        {
-            _goAlgorithm = algorithm;
-        }
-        public string go()
-        {
-            return _goAlgorithm.Go();
-        }
+        private IAlgorithm _algorithm;
+        public void SetAlgorithm(IAlgorithm algorithm) => _algorithm = algorithm;
+        public string ImplementAlgorithm() => _algorithm.Implement();
 
     }
-    //public class StreetRacer : DrivingStrategy
-    //{
-    //    public StreetRacer()
-    //    {
-    //        setGoAlgorithm(new GoByDriving());
-    //    }
-    //}
 
-    //public class FormulaOne : DrivingStrategy
-    //{
-    //    public FormulaOne()
-    //    {
-    //        setGoAlgorithm(new GoByDriving());
-    //    }
-    //}
-
-    //public class Helicopter : DrivingStrategy
-    //{
-    //    public Helicopter()
-    //    {
-    //        setGoAlgorithm(new GoByFlying());
-    //    }
-    //}
-
-    public class Jet : DrivingStrategy
+    //Concrete Strategy
+    public class ConcreteStrategy : Strategy
     {
-        public Jet()
+        public ConcreteStrategy()
         {
-            setGoAlgorithm(new GoByFlyingFast());
+            SetAlgorithm(new Algorithm1());
         }
     }
 
