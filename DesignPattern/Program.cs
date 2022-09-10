@@ -28,22 +28,22 @@ namespace DesignPattern
 
     public interface IAlgorithm
     {
-        string Implement();
+        string Run();
     }
 
     public class Algorithm1 : IAlgorithm
     {
-        public string Implement() => "Algorithm1";
+        public string Run() => "Algorithm1";
     }
 
     public class Algorithm2 : IAlgorithm
     {
-        public string Implement() => "Algorithm2";
+        public string Run() => "Algorithm2";
     }
 
     public class Algorithm3 : IAlgorithm
     {
-        public string Implement() => "Algorithm3";
+        public string Run() => "Algorithm3";
     }
 
 
@@ -52,7 +52,7 @@ namespace DesignPattern
     {
         private IAlgorithm _algorithm;
         public void SetAlgorithm(IAlgorithm algorithm) => _algorithm = algorithm;
-        public string ImplementAlgorithm() => _algorithm.Implement();
+        public string ImplementAlgorithm() => _algorithm.Run();
 
     }
 

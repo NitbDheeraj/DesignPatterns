@@ -16,13 +16,13 @@ namespace StateDesignPattern
 
             Context c = new Context();
 
-            StartState start = new StartState();
-            start.doAction(c);
+            State1 start = new State1();
+            start.ChangeBehavior(c);
 
             Console.WriteLine("Start State");
 
-            EndState end = new EndState();
-            end.doAction(c);
+            State2 end = new State2();
+            end.ChangeBehavior(c);
 
             Console.WriteLine("End State");
 
@@ -32,23 +32,23 @@ namespace StateDesignPattern
 
     public interface IState
     {
-        void doAction(Context context);
+        void ChangeBehavior(Context context);
     }
 
-    public class StartState : IState
+    public class State1 : IState
     {
-        public void doAction(Context context)
+        public void ChangeBehavior(Context context)
         {
-            Console.WriteLine("Player is in Start State");
+            Console.WriteLine("State 1");
             context.SetState(this);
         }
     }
 
-    public class EndState : IState
+    public class State2 : IState
     {
-        public void doAction(Context context)
+        public void ChangeBehavior(Context context)
         {
-            Console.WriteLine("Player is in End State");
+            Console.WriteLine("State 2");
             context.SetState(this);
         }
     }
@@ -58,19 +58,10 @@ namespace StateDesignPattern
     {
         private IState _state;
 
-        public Context()
-        {
-            _state = null;
-        }
+        public Context() => _state = null;
 
-        public void SetState(IState state)
-        {
-            _state = state;
-        }
+        public void SetState(IState state) => _state = state;
 
-        public IState GetState()
-        {
-            return _state;
-        }
+        public IState GetState() => _state;
     }
 }
